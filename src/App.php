@@ -22,12 +22,15 @@ class App
 
     public function run()
     {
+        header("Access-Control-Allow-Origin: *");
+        header("Access-Control-Allow-Headers: Content-Type");
+
         if ($this->request->getMethod() == 'OPTIONS') {
             http_response_code(204);
             return;
         }
 
-        $body = json_encode($this->request->request->all());
+        $body = $this->request->getContent();
 
         $request = new GuzzleRequest(
             $this->request->getMethod(),
@@ -37,7 +40,7 @@ class App
         );
 
         if ($this->request->query->has('curl')) {
-            echo (new CurlFormatter())->format($request, []);die;
+            echo (new CurlFormatter())->format($request, []);
             return;
         }
 
