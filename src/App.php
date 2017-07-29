@@ -22,11 +22,7 @@ class App
 
     public function run()
     {
-        $body = $this->request->request->all();
-
-        if ($this->request->headers->get('Content-Type') == 'application/json') {
-            $body = json_encode($body);
-        }
+        $body = json_encode($this->request->request->all());
 
         $request = new GuzzleRequest(
             $this->request->getMethod(),
