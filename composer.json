@@ -1,0 +1,18 @@
+{
+    "name": "codingculture/cors-proxy",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Niels Vermaut",
+            "email": "niels@codingculture.be"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.3",
+        "symfony/http-foundation": "^3.3",
+        "namshi/cuzzle": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {"CodingCulture\\Proxy\\": "src/"}
+    }
+}
