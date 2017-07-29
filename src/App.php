@@ -22,6 +22,11 @@ class App
 
     public function run()
     {
+        if ($this->request->getMethod() == 'OPTIONS') {
+            http_response_code(204);
+            return;
+        }
+
         $body = json_encode($this->request->request->all());
 
         $request = new GuzzleRequest(
