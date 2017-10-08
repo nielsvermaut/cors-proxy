@@ -34,8 +34,8 @@ class App
 
         $request = new GuzzleRequest(
             $this->request->getMethod(),
-            $this->request->query->get('route'),
-            $this->request->headers->all(),
+            urldecode($this->request->query->get('route')),
+            [],
             $body
         );
 
